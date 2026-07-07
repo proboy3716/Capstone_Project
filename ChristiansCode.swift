@@ -1,7 +1,4 @@
-//
-//  ChristiansCode.swift
-//  
-//
-//  Created by DPI Student 004 on 7/7/26.
-//
-
+//ChristiansCode.swift
+<div align="center">
+  <h1>Front-End UI for capstone project</h1>
+</div>
