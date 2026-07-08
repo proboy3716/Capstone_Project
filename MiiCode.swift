@@ -6,4 +6,6 @@
 //
 
 let Company = "xbox", "playstation", "nintendo"
-let xboxConsoles = "xbox series x", "xbox series s", "xboxOne", "xbox360"
+let xboxOptions = "xbox series x", "xbox series s", "xboxOne", "xbox360"
+let PlaystationOptions = "ps5", "ps4", "ps3", "psvita", "ps2", "ps1"
+let nintendoOptions = "gamecube", "gameboy", "ds", "dsi", "3ds", "wii", "wiiU", "switch"
