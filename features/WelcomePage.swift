@@ -7,7 +7,7 @@
 struct WelcomePage: View {
     var body: some View {
         Text("Welcome to My App")
-            .font(Font.title
+            .font(Font.title)
                 .fontWeight (.semibold)
     }
 }
