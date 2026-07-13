@@ -10,3 +10,8 @@ let xboxOptions = "xbox series x", "xbox series s", "xboxOne", "xbox360"
 let PlaystationOptions = "ps5", "ps4", "ps3", "psvita", "ps2", "ps1"
 let nintendoOptions = "gamecube", "gameboy", "ds", "3ds", "wii", "switch"
 let otherOptions = "sega", "meta", "atari" 
+button(action: SelectCompany) {
+  Text("Nintendo")
+  Text("Sony")
+  Text("Xbox")
+}
