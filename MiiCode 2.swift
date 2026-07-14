@@ -16,7 +16,7 @@ struct XboxOptions: View {
     case "xboxSeriesX"
     case "xboxSeriesS"
     case "xbox360E"
-    case " xbos360Slim"
+    case "xbos360Slim"
     
 }
 struct SonyOptions: View {
