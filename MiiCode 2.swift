@@ -30,11 +30,16 @@ struct SonyOptions: View {
 struct NintendoOptions: view {
     case "wiiU"
     case "gamecube"
-    case "gameboy", "ds", "3ds", "wii", "switch"
+    case "gameboy"
+    case "ds"
+    case "3ds"
+    case "wii"
+    case "switch"
 }
-let otherOptions = "sega", "meta", "atari"
+struct OtherOptions: view {
+    case "sega", "meta", "atari"
 button(action: SelectCompany) {
-Text("show list")
+Text(\(company))
 }
 Button(action:{
     .toggle()
