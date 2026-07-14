@@ -28,12 +28,11 @@ struct SonyOptions: View {
     case "ps1"
 }
 struct NintendoOptions: view {
-    case "wiiU"
     case "gamecube"
     case "gameboy"
     case "ds"
     case "3ds"
-    case "wii"
+    case "wii/wiiU"
     case "switch"
 }
 struct OtherOptions: view {
