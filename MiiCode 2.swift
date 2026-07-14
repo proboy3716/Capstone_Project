@@ -39,16 +39,5 @@ struct OtherOptions: view {
     case "sega"
     case "meta"
     case "atari"
-    //buttons for app
-button(action: SelectCompany) {
-Text(\(company))
-}
-Button(action:{
-    .toggle()
-}, label: {
-    Text("select company")
-        .padding()
-        .background(.blue)
-        .cornerRadius(20)
-})
-#Preview
+
+
