@@ -3,7 +3,7 @@
 //  
 //
 //  Created by DPI Student 004 on 7/7/26.
-//
+//defining company and consoles
 struct company: View {
     case "Xbox"
     case "Sony"
@@ -37,7 +37,10 @@ struct NintendoOptions: view {
     case "switch"
 }
 struct OtherOptions: view {
-    case "sega", "meta", "atari"
+    case "sega"
+    case "meta"
+    case "atari"
+    //buttons for app
 button(action: SelectCompany) {
 Text(\(company))
 }
