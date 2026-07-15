@@ -41,4 +41,12 @@ struct OtherOptions: view {
     case "meta"
     case "atari"
 
-
+//struct linksTest:
+Button(action:{
+                location = currlocation
+            }, label: {
+                Text("SonyOptions")
+                    .padding()
+                    .background(.blue)
+                    .cornerRadius(20)
+            } )
