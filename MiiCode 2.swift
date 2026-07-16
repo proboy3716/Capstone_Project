@@ -42,11 +42,19 @@ struct OtherOptions: view {
     case "atari"
 
 //struct linksTest:
+var body: some View{
+    List {
+        Text("click me for Playstation links")
+        Text("click me for Xbox links")
+        Text("click me for Nintendo links")
+    }
+}
 Button(action:{
-                location = currlocation
+
             }, label: {
                 Text("SonyOptions")
                     .padding()
                     .background(.blue)
                     .cornerRadius(20)
-            } )
+            })
+#Preview
