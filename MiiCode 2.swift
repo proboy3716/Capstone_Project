@@ -49,12 +49,9 @@ var body: some View{
         Text("click me for Nintendo links")
     }
 }
-Button(action:{
-
-            }, label: {
-                Text("SonyOptions")
-                    .padding()
-                    .background(.blue)
-                    .cornerRadius(20)
-            })
+Link("NintendoTestLink", destination: URL(string: "https://brew.sh/")!)
+.environment(\.openURL, OpenURLAction { url in
+print("open \(url)")
+return .handled
+})
 #Preview
