@@ -41,8 +41,33 @@ struct OtherOptions: view {
     case "meta"
     case "atari"
 
-//struct linksTest:
-var body: some View{
+    @MainActor @preconcurrency
+    struct HelpLink
+    HelpLink(anchor: "accountSetupHelp")
+    HelpLink {
+        openURL(onlineHelpURL)
+    }
+    struct SheetContentView: View {
+        var body: some View {
+            Form {
+                 ...
+            }
+            .toolbar {
+                ToolbarItem(.confirmationAction) {
+                    Button("Save") { ... }
+                }
+                ToolbarItem(.cancellationAction) {
+                    Button("Cancel") { ... }
+                }
+                ToolbarItem {
+                    HelpLink(anchor: "sheetHelp")
+                }
+             }
+        }
+    }
+    
+//struct linksTest
+/* var body: some View{
     List {
         Text("click me for Playstation links")
         Text("click me for Xbox links")
@@ -53,5 +78,5 @@ Link("NintendoTestLink", destination: URL(string: "https://brew.sh/")!)
 .environment(\.openURL, OpenURLAction { url in
 print("open \(url)")
 return .handled
-})
+}) *\
 #Preview
