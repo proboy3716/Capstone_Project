@@ -41,7 +41,7 @@ struct OtherOptions: view {
     case "meta"
     case "atari"
 
-    @MainActor @preconcurrency
+    //@MainActor @preconcurrency
     struct Link<Label> where Label : View
     Link("link test",
       destination: URL(string: "https://www.youtube.com/watch?v=Gsl7rOAUM3Q&vl=en-US&themeRefresh=1")!)
