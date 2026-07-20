@@ -42,10 +42,15 @@ struct OtherOptions: view {
     case "atari"
 
     @MainActor @preconcurrency
+    struct Link<Label> where Label : View
+    Link("link test",
+      destination: URL(string: "https://www.youtube.com/watch?v=Gsl7rOAUM3Q&vl=en-US&themeRefresh=1")!)
+
+    /* 2nd design of button to link test
     struct HelpLink
-    HelpLink(anchor: "accountSetupHelp")
+     HelpLink(anchor: "accountSetupHelp")
     HelpLink {
-        openURL(onlineHelpURL)
+       openURL(onlineHelpURL)
     }
     struct SheetContentView: View {
         var body: some View {
@@ -64,9 +69,9 @@ struct OtherOptions: view {
                 }
              }
         }
-    }
-    
-//struct linksTest
+    }  *\
+
+//3rd design of button to link test
 /* var body: some View{
     List {
         Text("click me for Playstation links")
