@@ -19,7 +19,24 @@ Image(systemName: "person.circle")
 .frame(width: 125, height: 125)
 
             // info, name, email, member since
-
+VStack(alignment: .leading) {
+HStack{
+    Text("name: ")
+    Text("Afraz Siddiqui")
+}
+}
+VStack(alignment: .leading) {
+HStack{
+    Text("email: ")
+    Text("Afraz Siddiqui")
+}
+}
+VStack(alignment: .leading) {
+HStack{
+    Text("name: ")
+    Text("Afraz Siddiqui")
+}
+}
 
             // sign out
         }
