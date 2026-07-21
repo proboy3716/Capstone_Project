@@ -33,13 +33,16 @@ HStack{
 }
 VStack(alignment: .leading) {
 HStack{
-    Text("name: ")
+    Text("member since: ")
     Text("Afraz Siddiqui")
 }
 }
-
             // sign out
-        }
+// Button(Title: "log out", background: .red){
+  //  viewModel.logout()
+// }
+
+   //     }
         .navigationTitle("profile")
 
     }
