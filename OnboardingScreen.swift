@@ -8,9 +8,6 @@ struct OnboardContentView: View {
         
         if currentPage > totalPages {
             HomeScreen()
-                .onAppear {
-                    currentPage = 1
-                }
         }
         
         else{
@@ -23,66 +20,7 @@ struct OnboardContentView_Preview: PreviewProvider {
         OnboardContentView()
     }
 }
-
-// Home screen
-struct HomeScreen: View {
-    
-    @State private var email = ""
-    @State private var password = ""
-
-    var body: some View {
-        ZStack() {
-            Image("back2")
-                .overlay(Color.black.opacity(0.3))
-                    .ignoresSafeArea()
-                VStack() {
-                    
-                    Image("2")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(.horizontal, 16)
-                        .frame(width: 150, height: 150)
-                        .padding(.bottom, 100)
-                        .shadow(radius:10)
-                    Text("Login")                    .font(.largeTitle).foregroundColor(Color.white)
-                        .fontWeight(.heavy)
-                        .padding([.bottom], 30)
-                    
-                VStack (alignment: .leading, spacing: 15) {
-                        TextField("Email", text: self.$email)
-                            .padding()
-                            .background()
-                            .cornerRadius(20)
-                        SecureField("Password", text:self.$password)
-                            .padding()
-                            .background()
-                            .cornerRadius(20)
-                        
-                    }.padding([.leading, .trailing], 27.5)
-                    
-                    Button(action: {}) {
-                        Text("Sign In")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(width: 300, height: 50)
-                            .background(Color.green)
-                            .cornerRadius(15.0)
-        
-                                            }
-                                        
-                                            HStack(spacing: 15) {
-                                            Button(action: {}) {
-                                                Text("Don't have an account? Sign up")
-                                                    .font(.body)
-                                                    .fontWeight(.light)
-                                            }
-                                        }
-                                        }
-                                    }
-                                }
-                            }
-                            
+                
 var totalPages = 3
 
 
@@ -96,7 +34,7 @@ struct OnboardingScreen: View {
         ZStack(alignment: .bottom) {
             Image("back2")
                 .resizable()
-                .frame(width: .infinity, height: .infinity)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
             HStack {
 
@@ -120,6 +58,8 @@ struct ScreenView: View {
     
     @AppStorage("currentPage") var currentPage = 1
     @Environment(\.displayScale) private var displayScale
+    @State private var goToHome = false
+    let totalPages = 3
     
     var image: String
     var title: String
@@ -132,8 +72,7 @@ struct ScreenView: View {
                 
                 if currentPage == 1 {
                     Text("ModThat")
-                        .font(.title)
-                        .fontWeight(.semibold)
+                        .font(.custom("Audex-Regular", size: 23))
                         .kerning(1.2)
                         .foregroundColor(.white)
                     
@@ -165,10 +104,10 @@ struct ScreenView: View {
                     currentPage = 4
                     
                 }, label: {
-                    Text("Skip")
-                        .fontWeight(.semibold)
+                    Text("SKIP")
+                        .font(.custom("Audex-Regular", size: 23))
                         .kerning(1.2)
-                        .foregroundColor(.white)
+                        .foregroundColor(.red)
                 })
             }.padding()
                 .foregroundColor(Color.black)
@@ -185,8 +124,7 @@ struct ScreenView: View {
             Spacer(minLength:80)
             
             Text(title)
-                .font(.title)
-                .fontWeight(.bold)
+                .font(.custom("Silkscreen-Bold", size: 23))
                 .kerning(1.2)
                 .padding(.top)
                 .padding(.bottom, 5)
@@ -194,88 +132,114 @@ struct ScreenView: View {
             
             
             Text(details)
-                .font(.body)
+                .font(.custom("Pixelbasel", size: 27))
                 .fontWeight(.regular)
                 .kerning(1.2)
                 .padding([.leading, .trailing])
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
-
+            
             
             Spacer(minLength:0)
             
+            
             HStack {
+                
                 
                 if currentPage == 1 {
                     // make lines thin + colors them. lets user know what page they're on
+                    
                     Color.white.frame(height: 8 / displayScale)
+                        .padding(.bottom,80)
+                    
                     Color.gray.frame(height: 8 / displayScale)
+                        .padding(.bottom,80)
+                    
                     Color.gray.frame(height: 8 / displayScale)
+                    
+                        .padding(.bottom,80)
+                    
+                    
                     
                 }
                 
                 else if currentPage == 2 {
-                    Color.gray.frame(height: 8 / displayScale)
+                    Color.gray.frame(height: 8 / displayScale)                        .padding(.bottom,80)
+                    
                     Color.white.frame(height: 8 / displayScale)
+                        .padding(.bottom,80)
+                    
                     Color.gray.frame(height: 8 / displayScale)
+                    
+                        .padding(.bottom,80)
+                    
                 }
                 
                 else if currentPage == 3 {
                     Color.gray.frame(height: 8 / displayScale)
+                        .padding(.bottom,80)
+                    
                     Color.gray.frame(height: 8 / displayScale)
+                        .padding(.bottom,80)
+                    
                     Color.white.frame(height: 8 / displayScale)
+                        .padding(.bottom,80)
+                    
                     
                 }
                 
             }
         }
         
-                // bottom bars displayed for when user changes screen
-                
-                Button(action: {
-                    if currentPage <= totalPages {
-                        currentPage += 1
-                    }
-                    
-                    else {
-                        currentPage = 1
-                    }
-                }, label: {
-                    
-                    Button(action: {
-                        if currentPage <= totalPages {
-                            currentPage += 1
-                        }
-                        
-                        else {
-                            currentPage = 1
-                            
-                        }
-                    }, label: {
-                        
-                        if currentPage == 3 {
-                            Text("Get Started")
-                                .fontWeight(.semibold)
-                                .frame(minWidth:0, maxWidth: .infinity)
-                                .padding()
-                                .foregroundColor(Color.white)
-                                .background(Color.main)
-                                .cornerRadius(40)
-                                .padding(.horizontal,16)
-                        }
-                        else {
-                            Text("Next")
-                                .fontWeight(.semibold)
-                                .frame(minWidth:0, maxWidth: .infinity)
-                                .padding()
-                                .foregroundColor(Color.white)
-                                .background(Color.main)
-                                .cornerRadius(40)
-                                .padding(.horizontal,16)
-                                
-                        }
-                        
-                    })
-                })
+        // bottom bars displayed for when user changes screen
+        
+        Button(action: {
+            if currentPage <= totalPages {
+                currentPage += 1
+            } else {
+                goToHome = true
             }
+        }, label: {
+            
+            Button(action: {
+                if currentPage <= totalPages {
+                    currentPage += 1
+                }
+                
+                else {
+                    currentPage = 1
+                    
+                }
+            }, label: {
+                
+                if currentPage == 3 {
+                    Text("Get Started")
+                        .font(.custom("Silkscreen-bold", size: 15))
+                        .frame(minWidth:0, maxWidth: .infinity)
+                        .padding()
+                        .foregroundColor(Color.white)
+                        .background(Color.main)
+                        .cornerRadius(40)
+                        .padding(.horizontal,16)
+                }
+                else {
+                    Text("Next")
+                        .font(.custom("Silkscreen-bold", size: 15))
+                        .frame(minWidth:0, maxWidth: .infinity)
+                        .padding()
+                        .foregroundColor(Color.white)
+                        .background(Color.main)
+                        .cornerRadius(40)
+                        .padding(.horizontal,16)
+                    
+                }
+                
+            })
+            
+        })
+        .fullScreenCover(isPresented: $goToHome) {
+            HomeScreen()
+    }
+}
+
         }
